@@ -8,7 +8,14 @@
   },
   "agents": {
     "timeout": 300,
-    "framework": "claude-agent-sdk",
+    "framework": "workflow",
+    "sandbox": {
+      "timeout": 300
+    }
+  },
+  "services": {
+    "timeout": 300,
+    "framework": "workflow",
     "sandbox": {
       "timeout": 300
     }
