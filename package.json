@@ -2,6 +2,7 @@
   "name": "csv-analyze",
   "private": true,
   "version": "0.1.0",
+  "description": "Professional CSV analytics workspace with automated chart generation, streaming insights, and exportable reporting workflows.",
   "type": "module",
   "scripts": {
     "dev": "vite",
