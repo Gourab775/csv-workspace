@@ -2,7 +2,7 @@
 
 Professional full-stack workspace for CSV ingestion, automated chart generation, and data-driven reporting with live streaming insights and exportable deliverables.
 
-**Live Demo:** https://gourab775.github.io/csv-analyze-agent
+**Live Demo:** https://csv-analyze-agent-gourab-neogi.vercel.app
 
 **Category:** Data Analytics / File Processing
 
@@ -137,7 +137,7 @@ Bind `SERVICE_*` variables in the deployment environment and deploy via EdgeOne 
 
 Standard Vite build outputs to `dist`. Deploy to GitHub Pages or any static host.
 
-Live Demo: https://gourab775.github.io/csv-analyze-agent
+Live Demo: https://csv-analyze-agent-gourab-neogi.vercel.app
 
 ## Customization
 
