@@ -59,9 +59,6 @@ const en = {
   "aria.agentLog": "Agent activity log",
   "aria.sampleDatasets": "Sample datasets",
 
-  // Language toggle
-  "lang.switch": "中文",
-
   // ─── Floating bottom-right action badges ─────────────────────────────
   "floatingLink.deploy": "Deploy",
   "floatingLink.github": "GitHub",

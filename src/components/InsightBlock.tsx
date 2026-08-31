@@ -82,15 +82,15 @@ function highlightNumbers(s: string): string {
     /\b\d{4}[-/.]\d{1,2}[-/.]\d{1,2}(?:[T ]\d{1,2}:\d{2}(?::\d{2})?)?/g,
     working,
   );
-  // Chinese date format: e.g. Jan 5, 2024
-  working = protect(/\d{4}年\d{1,2}月\d{1,2}日/g, working);
+  // Textual date format: e.g. Jan 5, 2024
+  working = protect(/\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]* \d{1,2}, \d{4}/gi, working);
   // Time only: 14:30(:00)
   working = protect(/\b\d{1,2}:\d{2}(?::\d{2})?\b/g, working);
   // Version number: 1.2.3
   working = protect(/\b\d+\.\d+\.\d+\b/g, working);
 
   const highlighted = working.replace(
-    /(\d+(?:\.\d+)?\s?(?:%|倍|次|天|小时|分钟|元|USD|\$)|\b\d+(?:\.\d+)?\b)/g,
+    /(\d+(?:\.\d+)?\s?(?:%|x|times|days|hours|minutes|yuan|USD|\$)|\b\d+(?:\.\d+)?\b)/gi,
     (m) => `<mark>${m}</mark>`,
   );
 

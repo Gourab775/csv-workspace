@@ -77,7 +77,7 @@ function looksLikeDate(v: string): boolean {
   if (/^\d{4}[-/.]\d{1,2}[-/.]\d{1,2}(?:[T ]\d{1,2}:\d{2}(?::\d{2})?)?/.test(s)) {
     return !Number.isNaN(Date.parse(s));
   }
-  if (/\d{4}\s*年\s*\d{1,2}\s*月\s*\d{1,2}/.test(s)) return true;
+  if (/\b\d{4}-\d{1,2}-\d{1,2}\b/.test(s)) return true;
   if (/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\b/i.test(s)) {
     return !Number.isNaN(Date.parse(s));
   }

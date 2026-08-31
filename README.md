@@ -1,4 +1,4 @@
-﻿# CSV Analytics Workspace
+# CSV Analytics Workspace
 
 Professional full-stack workspace for CSV ingestion, automated chart generation, and data-driven reporting with live streaming insights and exportable deliverables.
 
