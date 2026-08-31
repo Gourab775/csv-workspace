@@ -1,4 +1,4 @@
-# CSV Analytics Workspace
+﻿# CSV Analytics Workspace
 
 Professional full-stack workspace for CSV ingestion, automated chart generation, and data-driven reporting with live streaming insights and exportable deliverables.
 
@@ -6,21 +6,21 @@ Professional full-stack workspace for CSV ingestion, automated chart generation,
 
 **Category:** Data Analytics / File Processing
 
-**Stack:** React 18 · Vite · Tailwind CSS · Vega / Vega-Lite · Workflow Engine · Platform Services
+**Stack:** React 18 Â· Vite Â· Tailwind CSS Â· Vega / Vega-Lite Â· Workflow Engine Â· Platform Services
 
 ## Overview
 
-CSV Analytics Workspace turns raw CSV files into actionable reports — interactive Vega-Lite charts, written insights with concrete metrics, and downloadable Markdown/HTML deliverables. The pipeline uses a two-stage service workflow connected through streaming events, with sandbox tools handling encoding detection, column profiling, and chart rendering for reliable enterprise-grade data workflows.
+CSV Analytics Workspace turns raw CSV files into actionable reports â€” interactive Vega-Lite charts, written insights with concrete metrics, and downloadable Markdown/HTML deliverables. The pipeline uses a two-stage service workflow connected through streaming events, with sandbox tools handling encoding detection, column profiling, and chart rendering for reliable enterprise-grade data workflows.
 
 Designed as a reusable pattern for any "inspect a file and generate a report" solution with real-time progress, persistent history, and production-ready deployment.
 
 ## Features
 
-- **Drag-and-Drop Ingestion** — Handles encoding detection (UTF-8 / GBK / UTF-16), column profiling, and sample extraction before processing.
-- **Automated Chart Generation** — Data profiling service plans and renders 3–6 Vega-Lite charts as scalable SVGs with embedded metadata.
-- **Data-Driven Insights** — Insight service reads chart metadata and column statistics to write per-chart and overall summaries with concrete numbers.
-- **Live Streaming Telemetry** — Frontend state machine (`scanning → charting → insights → report`) driven by typed service events over SSE for real-time visibility.
-- **Exportable Reports & History** — Generates Markdown and HTML reports with embedded SVGs; persists analysis history for retrieval by task ID.
+- **Drag-and-Drop Ingestion** â€” Handles encoding detection (UTF-8 / GBK / UTF-16), column profiling, and sample extraction before processing.
+- **Automated Chart Generation** â€” Data profiling service plans and renders 3â€“6 Vega-Lite charts as scalable SVGs with embedded metadata.
+- **Data-Driven Insights** â€” Insight service reads chart metadata and column statistics to write per-chart and overall summaries with concrete numbers.
+- **Live Streaming Telemetry** â€” Frontend state machine (`scanning â†’ charting â†’ insights â†’ report`) driven by typed service events over SSE for real-time visibility.
+- **Exportable Reports & History** â€” Generates Markdown and HTML reports with embedded SVGs; persists analysis history for retrieval by task ID.
 
 ## Tech Stack
 
@@ -37,33 +37,33 @@ Designed as a reusable pattern for any "inspect a file and generate a report" so
 
 ```
 csv-analyze-agent/
-├── services/                      # Stateful service functions (Node/TS)
-│   ├── _lib/                      # Shared modules — orchestration, sessions, events, reports
-│   │   ├── analyze.ts             # Two-stage orchestration
-│   │   ├── system-prompt.ts       # Chart / Insight service prompts
-│   │   ├── report.ts              # Markdown/HTML report assembly
-│   │   ├── session.ts             # In-memory Map<conversationId, Session>
-│   │   ├── events.ts              # Typed service event union
-│   │   └── tools/                 # Service tools (chart-service, insight-service, shared)
-│   ├── upload/index.ts            # POST /upload — multipart CSV ingestion + profiling
-│   ├── analyze/index.ts           # POST /analyze — get | start | cancel | delete
-│   ├── analyze/stream.ts          # POST /analyze/stream — SSE event stream
-│   ├── analyze/rerun-insights.ts  # POST /analyze/rerun-insights
-│   ├── analyze/download.ts        # POST /analyze/download — report download
-│   ├── analyze/stop.ts            # POST /analyze/stop — abort active run
-│   └── static/index.ts            # POST /static — serve generated SVGs
-├── cloud-functions/               # Stateless cloud functions
-│   ├── history/index.ts           # POST /history — per-conversation records
-│   ├── history-detail/index.ts    # POST /history-detail — full artifacts for one taskId
-│   ├── _http.ts                   # Shared HTTP helpers
-│   └── _logger.ts                 # Logger utility
-├── src/                           # Frontend (React + Vite + Tailwind v4)
-│   ├── components/                # DropZone, PassCard, Canvas, ReportView
-│   ├── hooks/useAgentStream.ts    # SSE state machine reducer
-│   ├── lib/                       # API client, event types, formatters
-│   └── types.ts                   # Frontend type definitions
-├── edgeone.json                   # Deployment configuration
-└── index.html
+â”œâ”€â”€ services/                      # Stateful service functions (Node/TS)
+â”‚   â”œâ”€â”€ _lib/                      # Shared modules â€” orchestration, sessions, events, reports
+â”‚   â”‚   â”œâ”€â”€ analyze.ts             # Two-stage orchestration
+â”‚   â”‚   â”œâ”€â”€ system-prompt.ts       # Chart / Insight service prompts
+â”‚   â”‚   â”œâ”€â”€ report.ts              # Markdown/HTML report assembly
+â”‚   â”‚   â”œâ”€â”€ session.ts             # In-memory Map<conversationId, Session>
+â”‚   â”‚   â”œâ”€â”€ events.ts              # Typed service event union
+â”‚   â”‚   â””â”€â”€ tools/                 # Service tools (chart-service, insight-service, shared)
+â”‚   â”œâ”€â”€ upload/index.ts            # POST /upload â€” multipart CSV ingestion + profiling
+â”‚   â”œâ”€â”€ analyze/index.ts           # POST /analyze â€” get | start | cancel | delete
+â”‚   â”œâ”€â”€ analyze/stream.ts          # POST /analyze/stream â€” SSE event stream
+â”‚   â”œâ”€â”€ analyze/rerun-insights.ts  # POST /analyze/rerun-insights
+â”‚   â”œâ”€â”€ analyze/download.ts        # POST /analyze/download â€” report download
+â”‚   â”œâ”€â”€ analyze/stop.ts            # POST /analyze/stop â€” abort active run
+â”‚   â””â”€â”€ static/index.ts            # POST /static â€” serve generated SVGs
+â”œâ”€â”€ cloud-functions/               # Stateless cloud functions
+â”‚   â”œâ”€â”€ history/index.ts           # POST /history â€” per-conversation records
+â”‚   â”œâ”€â”€ history-detail/index.ts    # POST /history-detail â€” full artifacts for one taskId
+â”‚   â”œâ”€â”€ _http.ts                   # Shared HTTP helpers
+â”‚   â””â”€â”€ _logger.ts                 # Logger utility
+â”œâ”€â”€ src/                           # Frontend (React + Vite + Tailwind v4)
+â”‚   â”œâ”€â”€ components/                # DropZone, PassCard, Canvas, ReportView
+â”‚   â”œâ”€â”€ hooks/useAgentStream.ts    # SSE state machine reducer
+â”‚   â”œâ”€â”€ lib/                       # API client, event types, formatters
+â”‚   â””â”€â”€ types.ts                   # Frontend type definitions
+â”œâ”€â”€ edgeone.json                   # Deployment configuration
+â””â”€â”€ index.html
 ```
 
 > `services/` is the canonical service directory and maps to the former `agents/` path in the codebase.
@@ -150,3 +150,4 @@ Live Demo: https://csv-workspace.vercel.app
 ## License
 
 MIT
+
